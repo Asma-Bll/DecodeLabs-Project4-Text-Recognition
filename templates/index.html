@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Text Recognition System</title>
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>📝 Text Recognition System</h1>
+
+    <p>
+        Upload an image and extract text using AI.
+    </p>
+
+    <form method="POST"
+          enctype="multipart/form-data">
+
+        <input
+            type="file"
+            name="image"
+            accept="image/*"
+            required
+        >
+
+        <button type="submit">
+            Extract Text
+        </button>
+
+    </form>
+
+    {% if extracted_text %}
+
+    <div class="result">
+
+        <h2>Recognized Text</h2>
+
+        <p>{{ extracted_text }}</p>
+
+    </div>
+
+    {% endif %}
+
+</div>
+
+</body>
+</html>
